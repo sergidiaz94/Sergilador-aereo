@@ -21,9 +21,12 @@ export const env = {
     // resultats seus i es queda amb els de Travelpayouts.
     rapidApiKey: process.env.FLIGHTS_SKY_RAPIDAPI_KEY,
   },
-  opensky: {
-    clientId: process.env.OPENSKY_CLIENT_ID,
-    clientSecret: process.env.OPENSKY_CLIENT_SECRET,
+  flightTrackerLive: {
+    // Clau de RapidAPI per a "Flight Tracker Live" (radar en directe).
+    // Substitueix OpenSky: el mateix Vercel no pot connectar amb els
+    // servidors d'OpenSky (bloqueig de xarxa des de proveïdors de núvol),
+    // mentre que aquesta API passa pel gateway de RapidAPI.
+    rapidApiKey: process.env.FLIGHT_TRACKER_LIVE_RAPIDAPI_KEY,
   },
   footballData: {
     apiKey: process.env.FOOTBALL_DATA_API_KEY,
@@ -44,6 +47,6 @@ export const env = {
 export const hasTravelpayouts = () => Boolean(env.travelpayouts.apiToken);
 export const hasAeroDataBox = () => Boolean(env.aerodatabox.rapidApiKey);
 export const hasFlightsSky = () => Boolean(env.flightsSky.rapidApiKey);
-export const hasOpenSkyAuth = () => Boolean(env.opensky.clientId && env.opensky.clientSecret);
+export const hasFlightTrackerLive = () => Boolean(env.flightTrackerLive.rapidApiKey);
 export const hasFootballData = () => Boolean(env.footballData.apiKey);
 export const hasOpenWeather = () => Boolean(env.openWeather.apiKey);

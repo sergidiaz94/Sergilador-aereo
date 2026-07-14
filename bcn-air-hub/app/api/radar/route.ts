@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getLiveRadar } from '@/services/opensky/radar.service';
+import { getLiveRadar } from '@/services/flight-tracker-live/radar.service';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);

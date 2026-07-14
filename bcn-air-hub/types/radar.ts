@@ -3,7 +3,7 @@ import type { DataSource } from './common';
 export type LiveFlight = {
   id: string;
   callsign: string;
-  originCountry: string;
+  originCountry?: string;
   latitude: number;
   longitude: number;
   altitude: number | null;

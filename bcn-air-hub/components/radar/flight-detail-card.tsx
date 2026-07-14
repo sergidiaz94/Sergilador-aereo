@@ -21,10 +21,18 @@ export function FlightDetailCard({ flight }: { flight: LiveFlight | null }) {
         </div>
 
         <div className="space-y-3 text-sm">
-          <div className="flex justify-between">
-            <span className="text-slate-400">País d'origen:</span>
-            <span className="font-medium text-slate-200">{flight.originCountry}</span>
-          </div>
+          {flight.model && (
+            <div className="flex justify-between">
+              <span className="text-slate-400">Model d'avió:</span>
+              <span className="font-medium text-slate-200">{flight.model}</span>
+            </div>
+          )}
+          {flight.registration && (
+            <div className="flex justify-between">
+              <span className="text-slate-400">Matrícula:</span>
+              <span className="font-mono text-slate-200 text-xs">{flight.registration}</span>
+            </div>
+          )}
           <div className="flex justify-between">
             <span className="text-slate-400">Altitud:</span>
             <span className="font-mono bg-slate-950 px-2 py-0.5 rounded border border-slate-800 text-yellow-400 text-xs font-bold">
@@ -46,7 +54,7 @@ export function FlightDetailCard({ flight }: { flight: LiveFlight | null }) {
 
           <div className="mt-4 p-3.5 bg-slate-950/80 rounded-xl border border-blue-500/20 space-y-2">
             <div className="text-[11px] text-blue-400 font-bold tracking-wider flex items-center gap-1">
-              <Info className="w-3.5 h-3.5" /> TELEMETRIA EN VIU (OPENSKY)
+              <Info className="w-3.5 h-3.5" /> TELEMETRIA EN VIU
             </div>
             <div className="flex justify-between text-xs">
               <span className="text-slate-400">Coordenades:</span>
